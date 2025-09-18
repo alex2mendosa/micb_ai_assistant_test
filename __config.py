@@ -3,7 +3,14 @@
 
 # #### config.py
 
-# In[1]:
+import sys
+
+# Fix SQLite version issue for ChromaDB deployment
+try:
+    import pysqlite3
+    sys.modules['sqlite3'] = pysqlite3
+except ImportError:
+    pass
 
 
 # goal of the script is to prepare metadata for a database

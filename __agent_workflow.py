@@ -7,6 +7,15 @@
 # goal of the script is to prepare metadata for a database
 # it will process documents, generate questions, and prepare metadata for storage
 
+import sys
+
+# Fix SQLite version issue for ChromaDB deployment
+try:
+    import pysqlite3
+    sys.modules['sqlite3'] = pysqlite3
+except ImportError:
+    pass
+
 
 # === Standard Library ===
 import os

@@ -3,7 +3,14 @@
 
 # #### Streamlit component
 
-# In[1]:
+import sys
+
+# Fix SQLite version issue for ChromaDB deployment
+try:
+    import pysqlite3
+    sys.modules['sqlite3'] = pysqlite3
+except ImportError:
+    pass
 
 
 import streamlit as st
