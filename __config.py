@@ -4,6 +4,7 @@
 # #### config.py
 
 import sys
+import streamlit as st
 
 # Fix SQLite version issue for ChromaDB deployment
 try:
@@ -82,20 +83,7 @@ CHROMA_PATH_LAW_CORPUS_HQ = os.path.join(BASE_PATH, 'chroma_db_tenant', 'law_cor
 # In[2]:
 
 
-# load environment variables from .env file
-# This is useful for keeping sensitive information like API keys out of your codebase.
-load_dotenv() # Python-dotenv reads key-value pairs from a .env file and can set them as environment variables
-              # take environment variables from .env.
-#api_key_var = os.getenv("OPENAI_API_KEY") # 
-#print(api_key_var)
-
-## solution for win 
-# avoid conflict with wind global var
-config = dotenv_values(".env")
-#print(config) # dictionary
-
-api_key_var = config['OPENAI_API_KEY']
-#print(api_key_var)
+api_key_var = st.secrets["OPENAI_API_KEY"]
 
 
 
